@@ -33,6 +33,7 @@ namespace membership.Controllers
         public IActionResult Home ()
         {
             int member_id = HttpContext.Session.GetInt32("member_memberid") ?? 0;
+            string a = HttpContext.Session.GetString("isAdmin");
             var member = _context.Members
                       .Include(member => member.Transactions)  // join transactions
                       .FirstOrDefault(m => m.MemberId == member_id);

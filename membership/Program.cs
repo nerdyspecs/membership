@@ -7,11 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();
 
+//builder.Services.AddDbContext<MembershipDbContext>(options =>
+//{
+//    var connectionString = builder.Configuration.GetConnectionString("LocalConnection");
+//    options.UseSqlServer(connectionString);
+//});
+
 builder.Services.AddDbContext<MembershipDbContext>(options =>
-{
-    var connectionString = builder.Configuration.GetConnectionString("LocalConnection");
-    options.UseSqlServer(connectionString);
-});
+    options.UseInMemoryDatabase("InMemoryDb"));
 
 builder.Services.AddSession(options =>
 {

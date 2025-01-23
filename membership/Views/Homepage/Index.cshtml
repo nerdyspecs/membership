@@ -32,6 +32,12 @@
 </head>
 
 <body>
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-info">
+            @TempData["Message"]
+        </div>
+    }
     <div class="container">
         <h1>Welcome to the Membership's Hub! Where member information is found!</h1>
         <a href="/Homepage/Signin" class="btn btn-primary">Signin</a>

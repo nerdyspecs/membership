@@ -24,6 +24,11 @@ namespace membership.Controllers
         public IActionResult Home()
         {
             int member_id = HttpContext.Session.GetInt32("member_memberid") ?? 0;
+            if (HttpContext.Session.GetString("IsAdmin") != "true") {
+                TempData["Message"] = "Only admins have access. Re-login";
+                HttpContext.Session.Clear();
+                return RedirectToAction("Index", "Homepage");
+            }
 
             var member = _context.Members
                     .FirstOrDefault(member => member.MemberId == member_id);
