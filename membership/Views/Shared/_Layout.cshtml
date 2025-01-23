@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
 
-                    @if (Context.Session.GetString("isAdmin") == "false")
+                    @if (Context.Session.GetString("IsAdmin") == "false")
                     {
                         <li class="nav-item">
                             <a href="@Url.Action("Home", "Members")" class="nav-link active">
