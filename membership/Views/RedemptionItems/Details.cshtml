@@ -1,0 +1,42 @@
+﻿@model membership.Models.RedemptionItem
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>RedemptionItem</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RequiredPoints)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RequiredPoints)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a href="@Url.Action("Edit", "RedemptionItems", new { item_id = Model.RedemptionItemId })" class="btn btn-primary">
+        Update Item
+    </a>
+    <a href="@Url.Action("Delete", "RedemptionItems", new { item_id = Model.RedemptionItemId })" class="btn btn-danger">
+        Delete Item
+    </a>
+</div>
